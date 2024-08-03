@@ -11,6 +11,7 @@ export default function PokemonList() {
     "https://pokemon-fight-api.vercel.app/api/v1/pokemon",
     "https://pokeapi.co/api/v2/pokemon"
   );
+  const regex = new RegExp(`\\b(${search})`, 'gi');
 
   if (loading) {
     return <PokeCardSkeleton />;
@@ -25,7 +26,7 @@ export default function PokemonList() {
         value={search}
       />
       <div className="h-[70vh] overflow-y-scroll scrollbar-webkit scrollbar-thin scrollbar-thumb p-4  grid grid-flow-row auto-rows-max gap-4 grid-cols-card mt-[1rem]">
-        {pokData.filter(pokemon => pokemon.name.english.includes(search)).map((pokemon) => (
+        {pokData.filter(pokemon => pokemon.name.english.match(regex)).map((pokemon) => (
           <PokemonCard key={pokemon.id} pokemon={pokemon} />
         ))}
       </div>
