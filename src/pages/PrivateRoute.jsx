@@ -14,7 +14,7 @@ export default function PrivateRoute({ component: Component, ...rest }){
       const fetchUserData = async () => {
         try {
           const response = await axios.get(
-            'http://localhost:8080/api/auth/user',
+            'users-login-tan.vercel.app/api/auth/user',
             {
               headers: {
                 Authorization: `Bearer ${authToken}`,
