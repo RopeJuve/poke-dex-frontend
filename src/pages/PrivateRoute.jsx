@@ -24,6 +24,7 @@ export default function PrivateRoute({ component: Component, ...rest }){
           setUser(response.data.user);
         } catch (error) {
           setError(error);
+          console.log(error);
           logout();
         } finally {
           setLoading(false);

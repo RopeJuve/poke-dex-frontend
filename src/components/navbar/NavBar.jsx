@@ -2,7 +2,6 @@ import ThemeSwitcher from "@/components/ThemeSwitcher/ThemeSwitcher";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 
-
 export default function NavBar() {
   const { user } = useAuth();
   console.log(user);
@@ -19,6 +18,9 @@ export default function NavBar() {
       <div className="flex items-center space-x-4">
         <Link to="/" className=" uppercase hover:text-gray-200">
           Home
+        </Link>
+        <Link to="/dashboard" className=" uppercase hover:text-gray-200">
+          Profile
         </Link>
         {user ? (
           <Link to="/dashboard" className=" uppercase hover:text-gray-200">
